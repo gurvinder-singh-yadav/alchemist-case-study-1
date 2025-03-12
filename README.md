@@ -10,6 +10,8 @@ Additionally, you can watch a video demonstration of the project on YouTube [her
 
 Design and develop a visually appealing, responsive dashboard with multiple UI components. The focus is on design skills, user experience, and attention to detail.
 
+**Time Taken**: The case study was completed in approximately 4.5 hours.
+
 ## Instructions
 
 1. **Project Setup**
