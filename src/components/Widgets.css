@@ -1,0 +1,110 @@
+.widget-card {
+  background: #ffffff;
+  border-radius: 12px;
+  border: none;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.widget-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.widget-card .card-body {
+  padding: 1.5rem;
+}
+
+.widget-card .card-title {
+  color: #6c757d;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 1rem;
+}
+
+.widget-card .display-6 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+}
+
+.trend-up {
+  color: #2ecc71;
+  font-weight: 600;
+}
+
+.trend-down {
+  color: #e74c3c;
+  font-weight: 600;
+}
+
+.trend-neutral {
+  color: #95a5a6;
+  font-weight: 600;
+}
+
+/* Icons for trends */
+.trend-indicator::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  margin-right: 0.5rem;
+}
+
+.trend-up::before {
+  content: "↑";
+}
+
+.trend-down::before {
+  content: "↓";
+}
+
+.trend-neutral::before {
+  content: "→";
+}
+
+/* Dark mode styles */
+.dark-mode .widget-card {
+  background-color: #2d2d2d;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .widget-card:hover {
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .widget-card .card-title {
+  color: #a4a9ae;
+}
+
+.dark-mode .widget-card .display-6 {
+  color: #ffffff;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .widget-card .card-body {
+    padding: 1.25rem;
+  }
+
+  .widget-card .display-6 {
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .col-md-4 {
+    padding: 0 10px;
+  }
+}
+
+/* If you're using dark mode, you might want to override these colors */
+@media (prefers-color-scheme: dark) {
+  .widget-card {
+    background-color: inherit;
+  }
+} 

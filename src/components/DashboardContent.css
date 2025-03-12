@@ -1,0 +1,71 @@
+.dashboard-title {
+  transition: padding-left 0.3s ease;
+  margin: 0;
+  flex-grow: 1;  /* Allow title to take up available space */
+}
+
+.dashboard-title-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;  /* Space between title and toggle */
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
+
+.sidebar-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  height: 38px;
+  width: 38px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-left: 15px;  /* Changed from margin-right to margin-left */
+}
+
+.sidebar-toggle:hover {
+  background-color: #0056b3;
+}
+
+@media (min-width: 769px) {
+  .sidebar-toggle {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-title {
+    padding-left: 0;  /* Remove previous padding */
+    margin: 0;  /* Remove default margin */
+  }
+}
+
+.dashboard-content {
+  padding: 1.5rem;
+  min-height: 100vh;
+  background-color: #f8f9fa;  /* Same off-white as sidebar in light mode */
+  transition: background-color 0.3s ease;
+}
+
+/* Dark mode styles */
+.dark-mode .dashboard-content {
+  background-color: #2d2d2d;  /* Same dark background as sidebar */
+}
+
+.dark-mode .dashboard-title {
+  color: #fff;  /* White text in dark mode */
+}
+
+.dark-mode .sidebar-toggle {
+  background: #0056b3;  /* Darker blue in dark mode */
+}
+
+.dark-mode .sidebar-toggle:hover {
+  background-color: #003d80;
+}
+

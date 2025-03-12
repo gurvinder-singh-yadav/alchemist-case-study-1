@@ -1,0 +1,13 @@
+.theme-toggle {
+  z-index: 1000;
+}
+
+.theme-toggle button {
+  padding: 8px 16px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle button:hover {
+  transform: scale(1.05);
+} 

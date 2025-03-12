@@ -1,0 +1,171 @@
+.table-container {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  margin: 1rem 0;
+  overflow-x: auto;
+}
+
+.table-filters {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.filter-input, .filter-select {
+  padding: 0.5rem 1rem;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  min-width: 200px;
+  transition: all 0.3s ease;
+}
+
+.filter-input:focus, .filter-select:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.custom-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.custom-table th.sortable {
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s ease;
+}
+
+.custom-table th.sortable:hover {
+  background-color: #e9ecef;
+}
+
+.custom-table thead th {
+  background-color: #f8f9fa;
+  color: #495057;
+  font-weight: 600;
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.custom-table tbody tr {
+  transition: all 0.2s ease;
+}
+
+.custom-table tbody tr:hover {
+  background-color: #f8f9fa;
+  transform: translateY(-1px);
+}
+
+.custom-table td {
+  padding: 1rem;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.status-badge {
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.status-active {
+  background-color: #e7f5ea;
+  color: #0a8528;
+}
+
+.status-inactive {
+  background-color: #f8f9fa;
+  color: #6c757d;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.pagination-button {
+  padding: 0.5rem 1rem;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  background-color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pagination-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pagination-button:not(:disabled):hover {
+  background-color: #e9ecef;
+}
+
+.pagination-info {
+  color: #6c757d;
+}
+
+/* Dark mode styles */
+.dark-mode .table-container {
+  background-color: #2d2d2d;
+}
+
+.dark-mode .custom-table thead th {
+  background-color: #3d3d3d;
+  color: #fff;
+  border-bottom-color: #4d4d4d;
+}
+
+.dark-mode .custom-table tbody tr:hover {
+  background-color: #3d3d3d;
+}
+
+.dark-mode .custom-table td {
+  color: #fff;
+  border-bottom-color: #4d4d4d;
+}
+
+.dark-mode .filter-input,
+.dark-mode .filter-select,
+.dark-mode .pagination-button {
+  background-color: #3d3d3d;
+  border-color: #4d4d4d;
+  color: #fff;
+}
+
+.dark-mode .pagination-info {
+  color: #a4a9ae;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .table-filters {
+    flex-direction: column;
+  }
+
+  .filter-input, .filter-select {
+    width: 100%;
+    min-width: unset;
+  }
+
+  .custom-table {
+    font-size: 0.875rem;
+  }
+
+  .custom-table td, .custom-table th {
+    padding: 0.75rem;
+  }
+
+  .status-badge {
+    padding: 0.25rem 0.75rem;
+  }
+} 

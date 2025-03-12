@@ -36,3 +36,41 @@
     transform: rotate(360deg);
   }
 }
+
+body {
+  transition: background-color 0.3s ease;
+}
+
+body.dark-mode {
+  background-color: #333;
+  color: #fff;
+}
+
+.dark-mode .card {
+  background-color: #444;
+  color: #fff;
+}
+
+.app {
+  display: flex;
+  min-height: 100vh;
+}
+
+.content {
+  margin-left: 200px;
+  /* padding: 20px; */
+  width: 100%;
+  transition: margin-left 0.3s ease;
+}
+
+.content.expanded {
+  margin-left: 0;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .content {
+    margin-left: 0;
+    padding: 15px;
+  }
+}
