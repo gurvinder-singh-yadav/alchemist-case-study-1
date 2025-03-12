@@ -1,6 +1,6 @@
-import React from "react";
-import "./Widgets.css";
+import React, { useEffect, useRef, useState } from "react";
 import widgetData from "../data/widgetData";
+import "./Widgets.css";
 
 const WidgetCard = ({ title, value, change, trend }) => {
   const getTrendClass = () => {
@@ -37,12 +37,39 @@ const WidgetCard = ({ title, value, change, trend }) => {
 };
 
 function Widgets() {
-  
+  const [visibleWidgets, setVisibleWidgets] = useState([]);
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = parseInt(entry.target.dataset.index, 10);
+            setVisibleWidgets((prev) => [...prev, index]);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { root: null, rootMargin: "0px", threshold: 0.1 }
+    );
+
+    const elements = containerRef.current.querySelectorAll(".widget-card");
+    elements.forEach((element) => observer.observe(element));
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <div className="row g-3">
+    <div className="row g-3" ref={containerRef}>
       {widgetData.map((widget, index) => (
-        <WidgetCard key={index} {...widget} />
+        <div
+          key={index}
+          data-index={index}
+          className="col-md-4 col-sm-6 mb-4 widget-card"
+        >
+          {visibleWidgets.includes(index) && <WidgetCard {...widget} />}
+        </div>
       ))}
     </div>
   );
