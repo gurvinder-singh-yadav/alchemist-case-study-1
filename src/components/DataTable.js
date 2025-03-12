@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useState, useCallback } from "react";
 import "./DataTable.css";
 
 function DataTable() {
@@ -46,7 +46,7 @@ function DataTable() {
   const itemsPerPage = 5;
 
   // Handle sorting
-  const handleSort = (key) => {
+  const handleSort = useCallback((key) => {
     setSortConfig({
       key,
       direction:
@@ -54,16 +54,16 @@ function DataTable() {
           ? "desc"
           : "asc",
     });
-  };
+  }, [setSortConfig, sortConfig]);
 
   // Handle filtering
-  const handleFilterChange = (e, key) => {
+  const handleFilterChange = useCallback((e, key) => {
     setFilters((prev) => ({
       ...prev,
       [key]: e.target.value,
     }));
     setCurrentPage(1); // Reset to first page when filtering
-  };
+  }, [setFilters, setCurrentPage]);
 
   // Filter and sort data
   const filteredAndSortedData = useMemo(() => {
@@ -93,10 +93,11 @@ function DataTable() {
 
   // Pagination logic
   const totalPages = Math.ceil(filteredAndSortedData.length / itemsPerPage);
-  const paginatedData = filteredAndSortedData.slice(
-    (currentPage - 1) * itemsPerPage,
-    currentPage * itemsPerPage
-  );
+  const paginatedData = useMemo(() => {
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = currentPage * itemsPerPage;
+    return filteredAndSortedData.slice(startIndex, endIndex);
+  }, [filteredAndSortedData, currentPage, itemsPerPage]);
 
   return (
     <div className="table-container">
@@ -153,8 +154,8 @@ function DataTable() {
           </tr>
         </thead>
         <tbody>
-          {paginatedData.map((row) => (
-            <tr key={row.id}>
+          {paginatedData.map((row, index) => (  // Use index as key here
+            <tr key={index}>
               <td>#{row.id.toString().padStart(4, "0")}</td>
               <td>{row.name}</td>
               <td>{row.email}</td>
