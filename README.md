@@ -2,7 +2,7 @@
 
 ## Demo
 
-You can view the live demo of the project [here](https://vercel.com/gurvinders-projects-c0feffd4/case-study-1).
+You can view the live demo of the project [here](https://case-study-1-three.vercel.app/).
 
 Additionally, you can watch a video demonstration of the project on YouTube [here](https://youtu.be/LK5SH2zKtOs).
 
